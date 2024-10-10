@@ -1,26 +1,18 @@
 import './App.css';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useNavigate } from "react-router-dom";
 
-function App() {
+function Register() {
   const navigate = useNavigate()
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
   return (
     <div className="box">
       <div className='formData'>
-        <h1>登录</h1>
+        <h1>注册</h1>
         <Form
           name="normal_login"
           className="login-form"
           initialValues={{ remember: true }}
-          onFinish={onFinish}
         >
           <Form.Item
             name="用户名"
@@ -39,18 +31,11 @@ function App() {
             />
           </Form.Item>
           <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>记住我</Checkbox>
-            </Form.Item>
-          </Form.Item>
-
-          <Form.Item>
             <Button type="primary" htmlType="submit">
-              登录
-            </Button>
-            <Button type="primary" style={{ margin: '0 16px' }} onClick={() => navigate('./register')}>
-            {/* <Button type="primary" style={{ margin: '0 16px' }}> */}
               注册
+            </Button>
+            <Button type="primary"  style={{ margin: '0 16px' }} onClick={() => navigate('/')}>
+              返回登录页
             </Button>
           </Form.Item>
         </Form>
@@ -59,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default Register;
